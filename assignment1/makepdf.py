@@ -7,7 +7,7 @@ try:
 
     MERGE = True
 except ImportError:
-    print("Could not find PyPDF2. Leaving pdf files unmerged.")
+    print("未找到 PyPDF2。将保持 PDF 文件未合并状态。")
     MERGE = False
 
 
@@ -24,7 +24,7 @@ def main(files, pdf_name):
         os_args.append(f)
         subprocess.run(os_args)
         os_args.pop()
-        print("Created PDF {}.".format(f))
+        print("已创建 PDF {}。".format(f))
     if MERGE:
         pdfs = [f.split(".")[0] + ".pdf" for f in files]
         merger = PdfMerger()
